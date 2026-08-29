@@ -1,0 +1,30 @@
+# ---------------------------------------------------------------------------
+# Sandbox regolatorio per il mercato collezionistico Pokemon TCG
+#
+# Python richiesto: 3.12 o 3.13
+#   Mesa 3.5 dichiara `requires-python >= 3.12`: su 3.11 o precedenti
+#   l'installazione fallisce. PyTorch ha wheel stabili per 3.12 su tutte le
+#   piattaforme, quindi 3.12 e' la scelta piu' sicura.
+#
+#   python3.12 -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+# ---------------------------------------------------------------------------
+
+# --- Tier model-driven (ABM) ---
+mesa[network]>=3.5,<4.0     # l'API di Mesa 4 e' incompatibile: il vincolo e' voluto
+networkx>=3.3
+
+# --- Tier data-driven (deep RL) ---
+torch>=2.4                  # DDQN. Basta la build CPU: le reti sono 24-12 neuroni
+gymnasium>=1.0
+
+# --- Analisi e figure ---
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8
+scipy>=1.13
+seaborn>=0.13
+
+# --- Facoltativi ---
+# tqdm>=4.66                # barre di avanzamento negli sweep
+# jupyterlab>=4.2           # esplorazione interattiva dei risultati
